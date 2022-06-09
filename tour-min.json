@@ -1,0 +1,366 @@
+{
+    "default": {
+        "firstScene": "photo1",
+        "author": "Matthew Petroff",
+        "sceneFadeDuration": 1000,
+        "autoLoad": true
+    },
+    "scenes": {
+        "photo1": {
+            "title": "photo1",
+            "hfov": 110,
+            "pitch": -15,
+            "yaw": 90,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/01.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10,
+                    "yaw": 120,
+                    "type": "scene",
+                    "text": "photo2",
+                    "sceneId": "photo2"
+                }
+            ]
+        },
+        "photo2": {
+            "title": "photo2",
+            "hfov": 110,
+            "pitch": -13,
+            "yaw": 110,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/02.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10,
+                    "yaw": 115,
+                    "type": "scene",
+                    "text": "photo3",
+                    "sceneId": "photo3"
+                },
+                {
+                    "pitch": -15,
+                    "yaw": -65,
+                    "type": "scene",
+                    "text": "photo1",
+                    "sceneId": "photo1"
+                }
+            ]
+        },
+        "photo3": {
+            "title": "photo3",
+            "hfov": 110,
+            "yaw": -160,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/03.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -25,
+                    "yaw": -120,
+                    "type": "scene",
+                    "text": "photo4",
+                    "sceneId": "photo4"
+                },
+                {
+                    "pitch": -25,
+                    "yaw": -75,
+                    "type": "scene",
+                    "text": "photo2",
+                    "sceneId": "photo2"
+                }
+            ]
+        },
+        "photo4": {
+            "title": "photo4",
+            "hfov": 110,
+            "pitch": -15,
+            "yaw": 140,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/04.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": 130,
+                    "type": "scene",
+                    "text": "photo5",
+                    "sceneId": "photo5"
+                },
+                {
+                    "pitch": -25,
+                    "yaw": -60,
+                    "type": "scene",
+                    "text": "photo3",
+                    "sceneId": "photo3"
+                }
+            ]
+        },
+        "photo5": {
+            "title": "photo5",
+            "hfov": 120,
+            "pitch": -20,
+            "yaw": -10,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/05.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -45,
+                    "yaw": -15,
+                    "type": "scene",
+                    "text": "photo6",
+                    "URL": "view4.html"
+                },
+                {
+                    "pitch": -45,
+                    "yaw": 168,
+                    "type": "scene",
+                    "text": "photo4",
+                    "sceneId": "photo4"
+                }
+            ]
+        },
+        "photo6": {
+            "title": "photo6",
+            "hfov": 120,
+            "pitch": -20,
+            "yaw": -30,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/06.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -35,
+                    "yaw": -60,
+                    "type": "scene",
+                    "text": "photo12",
+                    "sceneId": "photo12"
+                },
+                {
+                    "pitch": -35,
+                    "yaw": 130,
+                    "type": "scene",
+                    "text": "photo5",
+                    "URL": "index.html"
+                },
+                {
+                    "pitch": -25,
+                    "yaw": 10,
+                    "type": "scene",
+                    "text": "photo7",
+                    "sceneId": "photo7"
+                }
+            ]
+        },
+        "photo7": {
+            "title": "photo7",
+            "hfov": 120,
+            "pitch": -10,
+            "yaw": 95,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/07.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -30,
+                    "yaw": 170,
+                    "type": "scene",
+                    "text": "photo9",
+                    "sceneId": "photo9"
+                },
+                {
+                    "pitch": -35,
+                    "yaw": -45,
+                    "type": "scene",
+                    "text": "photo6",
+                    "sceneId": "photo6"
+                },
+                {
+                    "pitch": -35,
+                    "yaw": 55,
+                    "type": "scene",
+                    "text": "photo8",
+                    "sceneId": "photo8"
+                }
+            ]
+        },
+        "photo8": {
+            "title": "photo8",
+            "hfov": 120,
+            "pitch": -20,
+            "yaw": -30,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/08.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -40,
+                    "yaw": 45,
+                    "type": "scene",
+                    "text": "photo9",
+                    "sceneId": "photo9"
+                },
+                {
+                    "pitch": -40,
+                    "yaw": 155,
+                    "type": "scene",
+                    "text": "photo7",
+                    "sceneId": "photo7"
+                }
+            ]
+        },
+        "photo9": {
+            "title": "photo9",
+            "hfov": 120,
+            "pitch": -15,
+            "yaw": -50,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/09.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -25,
+                    "yaw": -55,
+                    "type": "scene",
+                    "text": "photo10",
+                    "sceneId": "photo10"
+                },
+                {
+                    "pitch": -25,
+                    "yaw": 150,
+                    "type": "scene",
+                    "text": "photo7",
+                    "sceneId": "photo7"
+                }
+            ]
+        },
+        "photo10": {
+            "title": "photo10",
+            "hfov": 120,
+            "yaw": -150,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18,
+                    "yaw": -150,
+                    "type": "scene",
+                    "text": "photo11",
+                    "sceneId": "photo11"
+                },
+                {
+                    "pitch": -30,
+                    "yaw": 30,
+                    "type": "scene",
+                    "text": "photo9",
+                    "sceneId": "photo9"
+                }
+            ]
+        },
+        "photo11": {
+            "title": "photo11",
+            "hfov": 100,
+            "pitch": -10,
+            "yaw": -60,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/11.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -25,
+                    "yaw": -65,
+                    "type": "scene",
+                    "text": "photo10",
+                    "sceneId": "photo10"
+                }
+            ]
+        },
+        "photo12": {
+            "title": "photo12",
+            "hfov": 120,
+            "pitch": -15,
+            "yaw": -180,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/12.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18,
+                    "yaw": 170,
+                    "type": "scene",
+                    "text": "photo13",
+                    "sceneId": "photo13"
+                },
+                {
+                    "pitch": -25,
+                    "yaw": -25,
+                    "type": "scene",
+                    "text": "photo6",
+                    "sceneId": "photo6"
+                }
+            ]
+        },
+        "photo13": {
+            "title": "photo13",
+            "hfov": 120,
+            "yaw": -130,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/13.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -30,
+                    "yaw": -130,
+                    "type": "scene",
+                    "text": "photo14",
+                    "sceneId": "photo14"
+                },
+                {
+                    "pitch": -30,
+                    "yaw": -40,
+                    "type": "scene",
+                    "text": "photo12",
+                    "sceneId": "photo12"
+                },
+                {
+                    "pitch": -30,
+                    "yaw": 145,
+                    "type": "scene",
+                    "text": "photo15",
+                    "sceneId": "photo15"
+                }
+            ]
+        },
+        "photo14": {
+            "title": "photo14",
+            "hfov": 120,
+            "pitch": -18,
+            "yaw": -20,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/14.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -45,
+                    "yaw": -105,
+                    "type": "scene",
+                    "text": "photo15",
+                    "sceneId": "photo15"
+                },
+                {
+                    "pitch": -40,
+                    "yaw": 165,
+                    "type": "scene",
+                    "text": "photo13",
+                    "sceneId": "photo13"
+                }
+            ]
+        },
+        "photo15": {
+            "title": "photo15",
+            "hfov": 120,
+            "yaw": -180,
+            "type": "equirectangular",
+            "panorama": "./0420_DONE/15.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -35,
+                    "yaw": 0,
+                    "type": "scene",
+                    "text": "photo14",
+                    "sceneId": "photo14"
+                }
+            ]
+        }
+    }
+}
