@@ -2,219 +2,413 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Mulcreevy Virutal Tour</title>
-  <meta name="description" content="Panorama Tour of Primrose House Style">
-  <meta name="author" content="Racarbry Developments">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/pannellum.css" />
-  <link rel="icon" type="image/png" href="/images/favicon.svg">
-  <style media="screen">
-    .panorama {
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>-->
+    <link rel="stylesheet" href="pannellum.css">
+    <script src="pannellum.js"></script>
+    <style>
+        body {
+            margin: 0px;
+        }
 
-    .help img {
-      vertical-align: middle;
-    }
-
-    h4 {
-      font-size: 2.4rem;
-    }
-
-    #actualPano {
-      position: relative;
-      top: -30px;
-      /*background-image: url("./img/F1.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;*/
-    }
-
-    .dimensions * {
-      font-size: 90%;
-    }
-
-    .smalllogo {
-      width: 118px;
-      height: 27px;
-      vertical-align: middle;
-    }
-
-    .new {
-      text-align: center;
-      background-color: rgb(100, 150, 150);
-      animation: new-animation 1s steps(5, start) infinite;
-      -webkit-animation: new-animation 1s steps(5, start) infinite;
-    }
-
-    @keyframes new-animation {
-      to {
-        background-color: transparent;
-      }
-    }
-
-    @-webkit-keyframes new-animation {
-      to {
-        background-color: transparent;
-      }
-    }
-
-    .four.columns {
-      width: 400px;
-    }
-
-    .map01 {
-      position: fixed;
-      right: 50px;
-      bottom: -254px;
-      width: 10%;
-      transition: width 1s, bottom 1s;
-      transition-timing-function: ease-out;
-    }
-
-    .map01:hover {
-      width: 15%;
-      bottom: -150px;
-
-    }
-  </style>
+        #panorama {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <!--<div class="row">
-      <div class="ten columns gohome">
-        <h1>Virtual Tour</h1>
-        <p><img src="/img/RDLogo.png" class="smalllogo" alt="Racarbry Developments" /> &bull; Mulcreevy Park &bull;
-          Keady</p>
-      </div>
-      <div class="two columns">
-        <p></p>
-      </div>
-    </div>-->
-    <div class="row">
-      <div class="twelve columns">
-        <div class="panorama" id="panorama"></div>
-      </div>
-    </div>
-    <!--<div class="row">
-      <div class="twelve columns">
-        <p></p>
-      </div>
-    </div>-->
-    <div class="row">
-      <!--<div class="three columns">
-        <div class="help">
-          <h4>How to use the Tour</h4>
-          <p>
-            <span class="helpitem" id="h_p"><img src="legendPlus.png" alt="+"> Zoom in </span>
-            <br /><span class="helpitem" id="h_m"><img src="legendMinus.png" alt="-"> Zoom out </span>
-          </p>
-          <p><span class="helpitem" id="h_f"><img src="legendFullscreen.png" alt="[]"> Fullscreen
-              <br />Click and drag to move</span>
-            <span class="helpitem" id="h_c"><img src="legendCompass.png" alt="^"> VR Mode
-              <br /></span>
-          </p>
-          <p>Click on floorplan to move rooms</p>
-        </div>
-      </div>-->
-      <div class="four columns">
-        <div class="map map01">
-          <h4></h4>
-          <div src="" alt="Primrose Floormap" id="svgfile"></div>
-        </div>
-      </div>
-      <div class="five columns">
-        <div id="num"></div>
-        <!--<div id="description">
-          <h4>Primrose,<br />Mulcreevy Park, Keady</h4>
-          <p>Boasting a 1073 ft2 floor area, these 3 bed room semi-detached homes at Mulcreevy Park are spacious whilst
-            maintaining a homely feel and scenic views of the countryside.</p>
-        </div>-->
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../js/libpannellum.js"></script>
-  <script type="text/javascript" src="../js/pannellum.js"></script>
-  <script src="../js/jquery-3.0.0.min.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    function watermark() {
-      $("<img/>", {
-        'id': "pnlm-watermark",
-        'src': src,
-      }).appendTo("#panorama").css({
-        "position": "absolute",
-        "right": "0px",
-        "bottom": "0px",
-        "opacity": 0.2,
-        "z-index": 100,
-        "mix-blend-mode": "multiply"
-      });
-    };
-    var Viewer = {};
-    var img = "./img/F1.svg";
-    function isMobile() { return ('ontouchstart' in document.documentElement); }
-    function canFullscreen() { return (document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled || document.msFullscreenEnabled) }
+    <div id="panorama"></div>
+    <script>
+        //document.getElementById("panorama").style.height = window.innerHeight + "px";
+        pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "photo1",
+                "autoLoad": true
+            },
 
-    loader = (function () {
+            "scenes": {
+                "photo1": {
+                    "title": "photo1",
+                    /*起始位置*/
+                    "hfov": 110,
+                    "pitch": -15,
+                    "yaw": 90,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/01.jpg",
+                    "hotSpots": [
+                        {   //下一張
+                            "pitch": -10,/*Y軸*/
+                            "yaw": 120,/*X軸*/
+                            "type": "scene",
+                            "text": "photo2",
+                            "sceneId": "photo2"
+                        }
+                    ]
+                },
 
-      // Load the floormap
-      $('#svgfile').load(img, null, function () {
-        this.id = "actualPano";
+                "photo2": {
+                    "title": "photo2",
+                    "hfov": 110,
+                    "pitch": -13,
+                    "yaw": 110,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/02.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -10,
+                            "yaw": 115,
+                            "type": "scene",
+                            "text": "photo3",
+                            "sceneId": "photo3"
+                            //"targetYaw": -23,
+                            //"targetPitch": 2
+                        },
+                        {
+                            "pitch": -15,
+                            "yaw": -65,
+                            "type": "scene",
+                            "text": "photo1",
+                            "sceneId": "photo1"
+                        }
+                    ]
+                },
 
-        var binders = $("#Rooms").children();
-        for (i = 0; i < binders.length; i++) {
-          $(binders[i]).click(sceneTo);
-          //$(binders[i]).css({ fill: "rgba(0,0,0,0)" }); // hide the map click areas
-        } // i
-        //highlight start location
-        //$("#Rooms #hall").css({ fill: "rgba(0,100,0,0.5)" });
-        //$($("#actualPano").children()[0]).width($(".map").width());
-        //$($("#actualPano").children()[0]).height($(".map").width());
-      });
-      // Load the panorama
-      $.getJSON("tour-min.json", function (data) {
-        Viewer = pannellum.viewer('panorama', data);
+                "photo3": {
+                    "title": "photo3",
+                    "hfov": 110,
+                    "yaw": -160,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/03.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -25,
+                            "yaw": -120,
+                            "type": "scene",
+                            "text": "photo4",
+                            "sceneId": "photo4"
+                        },
+                        {
+                            "pitch": -25,
+                            "yaw": -75,
+                            "type": "scene",
+                            "text": "photo2",
+                            "sceneId": "photo2"
+                        }
+                    ]
+                },
 
-        /*Viewer.on("scenechange", function (where) {
-          //$("#Rooms").children().css({ fill: "rgba(0,0,0,0)" });
-          //$("#Rooms #" + where).css({ fill: "rgba(0,100,0,0.5)" });
-          // $("#description").load("/panoramas/Primrose/" + where + "/" + where + ".html");
-        });*/
-      });
-      watermark("/img/RDLogo.png");
-      if (!canFullscreen()) $("#h_f").css({ "display": "none" });
-      if (!isMobile()) $("#h_c").css({ "display": "none" });
-      $(".gohome").click(function () { location.href = "/"; });
-      // Nice scroll to get title out of the way
-      setTimeout(function () {
-        var startLoc = "hall";
-        $("html, body").animate({ scrollTop: $("#panorama").offset().top });
-        //$("#description").load("/panoramas/Primrose/" + startLoc + "/" + startLoc + ".html");
-      }, 1500);
+                "photo4": {
+                    "title": "photo4",
+                    "hfov": 110,
+                    "pitch": -15,
+                    "yaw": 140,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/04.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -15,
+                            "yaw": 130,
+                            "type": "scene",
+                            "text": "photo5",
+                            "sceneId": "photo5"
+                        },
+                        {
+                            "pitch": -25,
+                            "yaw": -60,
+                            "type": "scene",
+                            "text": "photo3",
+                            "sceneId": "photo3"
+                        }
+                    ]
+                },
 
-    });
-    try {
-      $(document).ready(loader);
-    } catch (err) {
-      $("container").ready(loader);
-    }
-    function sceneTo(evt) {
-      if ( // exclude non pano rooms
-        (evt.target.id == "toilet")
-      ) { return; }
-      console.log("Navigate to " + evt.target.id);
+                "photo5": {
+                    "title": "photo5",
+                    "hfov": 120,
+                    "pitch": -20,
+                    "yaw": -10,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/05.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -45,
+                            "yaw": -15,
+                            "type": "scene",
+                            "text": "photo6",
+                            "sceneId": "photo6"
+                        },
+                        {
+                            "pitch": -45,
+                            "yaw": 168,
+                            "type": "scene",
+                            "text": "photo4",
+                            "sceneId": "photo4"
+                        }
+                    ]
+                },
 
-      Viewer.loadScene(evt.target.id);
+                "photo6": {
+                    "title": "photo6",
+                    "hfov": 120,
+                    "pitch": -20,
+                    "yaw": -30,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/06.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -35,
+                            "yaw": -60,
+                            "type": "scene",
+                            "text": "photo12",
+                            "sceneId": "photo12"
+                        },
+                        {
+                            "pitch": -35,
+                            "yaw": 130,
+                            "type": "scene",
+                            "text": "photo5",
+                            "sceneId": "photo5"
+                        },
+                        {
+                            "pitch": -25,
+                            "yaw": 10,
+                            "type": "scene",
+                            "text": "photo7",
+                            "sceneId": "photo7"
+                        }
+                    ]
+                },
 
-    }
+                "photo7": {
+                    "title": "photo7",
+                    "hfov": 120,
+                    "pitch": -10,
+                    "yaw": 95,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/07.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -30,
+                            "yaw": 170,
+                            "type": "scene",
+                            "text": "photo9",
+                            "sceneId": "photo9"
+                        },
+                        {
+                            "pitch": -35,
+                            "yaw": -45,
+                            "type": "scene",
+                            "text": "photo6",
+                            "sceneId": "photo6"
+                        },
+                        {
+                            "pitch": -35,
+                            "yaw": 55,
+                            "type": "scene",
+                            "text": "photo8",
+                            "sceneId": "photo8"
+                        }
+                    ]
+                },
 
-  </script>
+                "photo8": {
+                    "title": "photo8",
+                    "hfov": 120,
+                    "pitch": -20,
+                    "yaw": -30,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/08.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -40,
+                            "yaw": 45,
+                            "type": "scene",
+                            "text": "photo9",
+                            "sceneId": "photo9"
+                        },
+                        {
+                            "pitch": -40,
+                            "yaw": 155,
+                            "type": "scene",
+                            "text": "photo7",
+                            "sceneId": "photo7"
+                        }
+                    ]
+                },
+
+                "photo9": {
+                    "title": "photo9",
+                    "hfov": 120,
+                    "pitch": -15,
+                    "yaw": -50,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/09.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -25,
+                            "yaw": -55,
+                            "type": "scene",
+                            "text": "photo10",
+                            "sceneId": "photo10"
+                        },
+                        {
+                            "pitch": -25,
+                            "yaw": 150,
+                            "type": "scene",
+                            "text": "photo7",
+                            "sceneId": "photo7"
+                        }
+                    ]
+                },
+
+                "photo10": {
+                    "title": "photo10",
+                    "hfov": 120,
+                    "yaw": -150,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/10.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -18,
+                            "yaw": -150,
+                            "type": "scene",
+                            "text": "photo11",
+                            "sceneId": "photo11"
+                        },
+                        {
+                            "pitch": -30,
+                            "yaw": 30,
+                            "type": "scene",
+                            "text": "photo9",
+                            "sceneId": "photo9"
+                        }
+                    ]
+                },
+
+                "photo11": {
+                    "title": "photo11",
+                    "hfov": 100,
+                    "pitch": -10,
+                    "yaw": -60,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/11.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -25,
+                            "yaw": -65,
+                            "type": "scene",
+                            "text": "photo10",
+                            "sceneId": "photo10"
+                        }
+                    ]
+                },
+
+                "photo12": {
+                    "title": "photo12",
+                    "hfov": 120,
+                    "pitch": -15,
+                    "yaw": -180,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/12.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -18,
+                            "yaw": 170,
+                            "type": "scene",
+                            "text": "photo13",
+                            "sceneId": "photo13"
+                        },
+                        {
+                            "pitch": -25,
+                            "yaw": -25,
+                            "type": "scene",
+                            "text": "photo6",
+                            "sceneId": "photo6"
+                        }
+                    ]
+                },
+
+                "photo13": {
+                    "title": "photo13",
+                    "hfov": 120,
+                    "yaw": -130,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/13.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -30,
+                            "yaw": -130,
+                            "type": "scene",
+                            "text": "photo14",
+                            "sceneId": "photo14"
+                        },
+                        {
+                            "pitch": -30,
+                            "yaw": -40,
+                            "type": "scene",
+                            "text": "photo12",
+                            "sceneId": "photo12"
+                        },
+                        {
+                            "pitch": -30,
+                            "yaw": 145,
+                            "type": "scene",
+                            "text": "photo15",
+                            "sceneId": "photo15"
+                        }
+                    ]
+                },
+
+                "photo14": {
+                    "title": "photo14",
+                    "hfov": 120,
+                    "pitch": -18,
+                    "yaw": -20,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/14.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -45,
+                            "yaw": -105,
+                            "type": "scene",
+                            "text": "photo15",
+                            "sceneId": "photo15"
+                        },
+                        {
+                            "pitch": -40,
+                            "yaw": 165,
+                            "type": "scene",
+                            "text": "photo13",
+                            "sceneId": "photo13"
+                        }
+                    ]
+                },
+
+                "photo15": {
+                    "title": "photo15",
+                    "hfov": 120,
+                    "yaw": -180,
+                    "type": "equirectangular",
+                    "panorama": "./0420_DONE/15.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -35,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "photo14",
+                            "sceneId": "photo14"
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
